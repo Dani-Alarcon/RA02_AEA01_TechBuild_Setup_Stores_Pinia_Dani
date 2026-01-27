@@ -3,6 +3,7 @@
         <nav >
             <h1>TechBuilds</h1>
             <span>Configurator</span>
+            <p class="icons">🛒</p>
         </nav>
     </header>
 </template>
@@ -33,5 +34,9 @@ span {
     padding: 2px 8px;
     border-radius: 4px;
     font-size: 1rem;
+}
+.icons{
+    font-size: 30px;
+    margin: 0; 
 }
 </style>

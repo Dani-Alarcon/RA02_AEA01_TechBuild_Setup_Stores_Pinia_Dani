@@ -21,7 +21,7 @@ defineEmits(["addToCart"])
     <p>
       {{ component.name }} - {{component.price}}€
     </p>
-    <button>Afegir Muntatge</button>
+    <button class="primary" @click="$emit('addToCart', count), (count = 0)">Afegir Muntatge</button>
   </div>
 </template>
 <style scoped>
