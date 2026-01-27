@@ -24,10 +24,10 @@ export const useBuildStore = defineStore('buildStore', () => {
     //actions
     function addToCart(contador, item) {
         contador = parseInt(contador)
-        for (let i = 0; i < contador; i++) {
-            items.value.push(item)
-            console.log('En el for')
-        }
+
+        items.value.push(item)
+        console.log(items.value)
+
     }
 
     function $reset() {

@@ -1,6 +1,7 @@
 <script setup>
 // imports
 import { ref } from "vue";
+import CurrentBuildWidget from "./CurrentBuildWidget.vue";
 
 
 // props
@@ -23,6 +24,7 @@ defineEmits(["addToCart"])
     </p>
     <button class="primary" @click="$emit('addToCart', count), (count = 0)">Afegir Muntatge</button>
   </div>
+  <!--<CurrentBuildWidget/>-->
 </template>
 <style scoped>
 .card{
