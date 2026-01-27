@@ -1,17 +1,17 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import products from '@/data/products.json'
+import components from '@/data/hardware.json'
 
 
-export const useHardwareStore = defineStore('productStore', () => {
+export const useHardwareStore = defineStore('hardwareStore', () => {
     //state
-    const productRef = ref([])
-    //const productRef = ref(products)
+    const componentRef = ref([])
+    //const componentRef = ref(products)
     
     //de moment no hi ha getter pero serian les computed
     //actions
     function loadHardware(){
-        productRef.value = products
+        componentRef.value = components
     }
-    return { productRef, loadHardware }
+    return { componentRef, loadHardware }
 })

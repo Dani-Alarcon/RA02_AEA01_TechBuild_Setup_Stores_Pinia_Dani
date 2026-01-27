@@ -1,6 +1,13 @@
 <script setup>
 import NavBar from './components/NavBar.vue'
+import ComponentCard from './components/ComponentCard.vue';
+import {useHardwareStore} from '@/stores/useHardwareStore'
+import { storeToRefs } from "pinia";
 
+const componentStore = useHardwareStore()
+componentStore.loadHardware()
+
+const {componentRef} = storeToRefs(useHardwareStore())
 </script>
 
 <template>
@@ -8,7 +15,8 @@ import NavBar from './components/NavBar.vue'
 
   <main>
     <NavBar />
-    <h1>Hola</h1>
+    <h1>Components:</h1>
+    <ComponentCard v-for="component in componentRef" :key="component.name" :component="component" />
   </main>
 </template>
 
