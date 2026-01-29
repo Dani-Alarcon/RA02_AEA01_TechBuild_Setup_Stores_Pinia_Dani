@@ -14,9 +14,21 @@ export const useBuildStore = defineStore('BuildStore', () => {
         console.log('Afegit')
         console.log(components.value)
     }
-    const treureCarret = (itemName) => (components.value = components.value.filter(item => item.name !== itemName))
-    function checkout() {
-        alert('Has pagat')
+    function treureCarret(index, type) {
+        const grouped = groupBy(components.value, 'type')
+        const items = grouped[type] || []
+
+        for (let i = 0; i < components.value.length; i++) {
+            if (components.value[i].name === items[index].name) {
+                components.value.splice(i, 1)
+                break
+            }
+        }
     }
-    return { components, totalPrice: preuTotal, grouped, afegir, treureCarret, checkout }
+    function pagar() {
+        
+        alert(`Has pagat ${preuTotal.value}€`)
+        components.value = []
+    }
+    return { components, preuTotal, grouped, afegir, treureCarret, pagar }
 })
