@@ -1,7 +1,7 @@
 <script setup>
 // imports
 import { ref } from "vue";
-import CurrentBuildWidget from "./CurrentBuildWidget.vue";
+//import CurrentBuildWidget from "./CurrentBuildWidget.vue";
 
 
 // props
@@ -10,7 +10,7 @@ const props = defineProps({
 });
 
 // emits
-defineEmits(["addToCart"])
+defineEmits(["afegir"])
 
 // data
 //const count = ref(0);
@@ -22,7 +22,7 @@ defineEmits(["addToCart"])
     <p>
       {{ component.name }} - {{component.price}}€
     </p>
-    <button class="primary" @click="$emit('addToCart', count), (count = 0)">Afegir Muntatge</button>
+    <button class="primary" @click="$emit('afegir', count), (count = 0)">Afegir Muntatge</button>
   </div>
   <!--<CurrentBuildWidget/>-->
 </template>

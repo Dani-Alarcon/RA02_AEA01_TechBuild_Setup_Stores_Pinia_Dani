@@ -4,6 +4,7 @@ import ComponentCard from './components/ComponentCard.vue';
 import {useHardwareStore} from '@/stores/useHardwareStore'
 import { storeToRefs } from "pinia";
 import { useBuildStore } from './stores/useBuildStore';
+import CurrentBuildWidget from './components/CurrentBuildWidget.vue';
 
 
 const componentStore = useHardwareStore()
@@ -23,9 +24,10 @@ const buildStore = useBuildStore()
     <ComponentCard v-for="component in componentRef" 
     :key="component.name" 
     :component="component"
-    @addToCart="buildStore.addToCart($event,component)"
+    @afegir="buildStore.afegir(component)"
      />
   </main>
+   <CurrentBuildWidget/>
 </template>
 
 <style scoped>
