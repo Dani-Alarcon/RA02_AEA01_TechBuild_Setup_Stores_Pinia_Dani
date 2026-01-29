@@ -1,9 +1,14 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import products from '@/data/products.json'
 
+export const UserSessionStore = defineStore('UserSessionStore', () => {
 
-export const useSessionStore = defineStore('productStore', () => {
+    const usuari = ref("Guest Builder")
     
-    return {  }
+    const gitHub = () => {
+        const githubUser = 'Dani-Alarcon'
+        window.open(`https://github.com/${githubUser}`, '_blank')
+    }
+
+    return { usuari, gitHub }
 })

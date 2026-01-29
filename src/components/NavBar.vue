@@ -1,14 +1,27 @@
+<script setup>
+
+import { UserSessionStore } from "../stores/userSessionStore";
+const userSession = UserSessionStore()
+</script>
 <template>
     <header>
-        <nav >
+        <nav>
             <h1>TechBuilds</h1>
-            <span>Configurator</span>
-            
+            <p id="configurator">Configurator</p>
+            <div class="usuari">
+                <p>Hola, <span class="github-link" @click="userSession.gitHub">{{ userSession.usuari }}</span>
+                </p>
+            </div>
+
         </nav>
     </header>
 </template>
 
 <style scoped>
+* {
+    color: white;
+}
+
 header {
     background-color: #0D1526;
     width: 100%;
@@ -18,7 +31,7 @@ header {
 nav {
     display: flex;
     align-items: center;
-    gap: 10px;        
+    gap: 10px;
     padding: 0 5px;
 }
 
@@ -27,8 +40,7 @@ h1 {
     margin: 0;
 }
 
-span {
-    color: white;
+#configurator {
     background-color: blue;
     font-weight: bold;
     padding: 2px 8px;
@@ -36,4 +48,15 @@ span {
     font-size: 1rem;
 }
 
+.usuari {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+span {
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}
 </style>
