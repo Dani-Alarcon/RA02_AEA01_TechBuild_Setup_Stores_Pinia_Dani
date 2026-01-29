@@ -1,10 +1,18 @@
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { defineStore } from 'pinia'
 import { groupBy } from 'lodash'
 
 export const useBuildStore = defineStore('BuildStore', () => {
     // State
     const components = ref([])
+
+    //Guardar recargar
+     const guardat = localStorage.getItem('hardware-guardat')
+    if (guardat) {
+       components.value = JSON.parse(guardat) 
+    }
+    watch(components, (nouValor) => {localStorage.setItem('hardware-guardat', JSON.stringify(nouValor))}, { deep: true })
+
     // Getters
     const preuTotal = computed(() => components.value.reduce((acumulador, elemento) => acumulador + elemento.price, 0))
     const grouped = computed(() => groupBy(components.value, 'type'))
